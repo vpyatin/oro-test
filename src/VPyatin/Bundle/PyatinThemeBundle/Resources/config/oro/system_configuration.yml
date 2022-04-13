@@ -1,0 +1,44 @@
+system_configuration:
+    groups:
+        general:
+            title: General
+            icon: fa-palette
+        social_media_settings:
+            title: oro_frontend.system_configuration.groups.design.general.title
+
+    fields:
+        social_media_settings.instagram:
+            data_type: string
+            type: string
+            priority: 10
+            ui_only: true
+            options:
+                label: Instagram
+        social_media_settings.facebook:
+            data_type: string
+            type: string
+            priority: 20
+            ui_only: true
+            options:
+                label: Facebook
+        social_media_settings.twitter:
+            data_type: string
+            type: string
+            priority: 30
+            ui_only: true
+            options:
+                label: Twitter
+
+    tree:
+        system_configuration:
+            commerce:
+                children:
+                    design:
+                        children:
+                            general:
+                                children:
+                                    social_media_settings:
+                                        children:
+                                            - social_media_settings.instagram
+                                            - social_media_settings.facebook
+                                            - social_media_settings.twitter

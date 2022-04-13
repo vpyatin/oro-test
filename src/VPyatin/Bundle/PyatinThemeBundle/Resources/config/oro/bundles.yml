@@ -1,0 +1,3 @@
+
+bundles:
+  - { name: VPyatin\Bundle\PyatinThemeBundle\PyatinThemeBundle, priority: 1001 }
