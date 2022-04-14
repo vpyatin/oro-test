@@ -43,3 +43,6 @@ bin/*
 /.vagrant
 /.php-version
 /docker-compose.override.yml
+
+docker/data
+docker/log
