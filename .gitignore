@@ -44,5 +44,5 @@ bin/*
 /.php-version
 /docker-compose.override.yml
 
-docker/data
-docker/log
+docker/mysql/data
+docker/mysql/log
