@@ -2,28 +2,28 @@ system_configuration:
     groups:
         general:
             title: General
-            icon: fa-palette
+            icon: fa-pencil-square-o
         social_media_settings:
             title: oro_frontend.system_configuration.groups.design.general.title
 
     fields:
         social_media_settings.instagram:
             data_type: string
-            type: string
+            type: 'Symfony\Component\Form\Extension\Core\Type\UrlType'
             priority: 10
             ui_only: true
             options:
                 label: Instagram
         social_media_settings.facebook:
             data_type: string
-            type: string
+            type: 'Symfony\Component\Form\Extension\Core\Type\UrlType'
             priority: 20
             ui_only: true
             options:
                 label: Facebook
         social_media_settings.twitter:
             data_type: string
-            type: string
+            type: 'Symfony\Component\Form\Extension\Core\Type\UrlType'
             priority: 30
             ui_only: true
             options:
@@ -36,6 +36,7 @@ system_configuration:
                     design:
                         children:
                             general:
+                                priority: 20
                                 children:
                                     social_media_settings:
                                         children:

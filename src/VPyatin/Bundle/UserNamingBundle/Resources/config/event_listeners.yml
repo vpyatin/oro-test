@@ -1,0 +1,4 @@
+services:
+    VPyatin\Bundle\UserNamingBundle\EventListener\UserViewNamingListener:
+        tags:
+            - { name: kernel.event_listener, event: oro_ui.scroll_data.before.userView, method: onUserView }

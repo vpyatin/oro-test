@@ -25,13 +25,13 @@ class Configuration implements ConfigurationInterface
             $rootNode,
             [
                 'instagram' => [
-                    'type' => 'string',
+                    'type' => 'Symfony\Component\Form\Extension\Core\Type\UrlType',
                 ],
                 'facebook' => [
-                    'type' => 'string',
+                    'type' => 'Symfony\Component\Form\Extension\Core\Type\UrlType',
                 ],
                 'twitter' => [
-                    'type' => 'string',
+                    'type' => 'Symfony\Component\Form\Extension\Core\Type\UrlType',
                 ],
             ]
         );

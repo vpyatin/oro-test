@@ -1,0 +1,7 @@
+services:
+  VPyatin\Bundle\UserNamingBundle\Provider\UserNamingProviderDecorator:
+    decorates: oro_locale.entity_name_provider
+    arguments:
+      - '@.inner'
+    tags:
+      - { name: oro_entity.name_provider, priority: -60 }

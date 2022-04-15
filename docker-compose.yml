@@ -2,11 +2,13 @@ version: '3.5'
 services:
   mysql:
     image: mysql:8.0
-    ports: ['3306']
+    ports:
+      - '23306:3306'
     labels:
       com.symfony.server.service-prefix: ORO_DB
     volumes:
-      - mysql:/var/lib/mysql
+      - ./docker/mysql/data:/var/lib/mysql/
+      - ./docker/mysql/log:/var/log/mysql/
     environment:
       MYSQL_ROOT_PASSWORD: oro_db_pass
       MYSQL_DATABASE: oro_db

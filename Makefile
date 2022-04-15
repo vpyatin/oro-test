@@ -20,10 +20,10 @@ stop-server:
 	symfony server:start -d
 
 assets-install:
-	php bin/console oro:assets:install --symlink
+	symfony console oro:assets:install --symlink
 
 cc:
-	php bin/console cache:clear --env=dev
+	symfony console cache:clear
 
 cc-p:
-	php bin/console cache:clear --env=prod
+	symfony console cache:clear --env=prod
