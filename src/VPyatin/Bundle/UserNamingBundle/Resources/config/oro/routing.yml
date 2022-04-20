@@ -1,0 +1,6 @@
+vpyatin_frontend_usernaming:
+    resource: "@UserNamingBundle/Controller/Frontend/NamingController.php"
+    type: annotation
+    prefix: /usernaming
+    options:
+        frontend: true

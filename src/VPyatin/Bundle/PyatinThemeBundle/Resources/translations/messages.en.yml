@@ -1,6 +1,6 @@
 oro_frontend:
     system_configuration:
         groups:
-            desing:
+            design:
                 general.title: 'General'
                 social_media.title: 'Social media'

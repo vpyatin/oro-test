@@ -1,0 +1,9 @@
+layout:
+    actions:
+        - '@add':
+              id: currency_exchange_rate
+              parentId: page_content
+              siblingId: middle_bar_search
+              blockType: text
+              options:
+                  text: '=data["vpyatin_bundle_pyatin_theme_currency_exchange_rate"].getCurrencyRateData()'

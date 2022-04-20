@@ -1,0 +1,7 @@
+oro:
+    config:
+        system_configuration:
+            groups:
+                core_settings.title: "Core Settings"
+                core_settings.general.title: "General"
+                core_settings.currency_exchange.api_url.title: "Currency Exchange API Url"

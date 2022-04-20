@@ -1,0 +1,28 @@
+system_configuration:
+    groups:
+        core_settings:
+            title: oro_frontend.system_configuration.groups.design.general.title
+            icon: fa-key
+
+    fields:
+        oro_ui.currency_exchange_api_url:
+            data_type: string
+            type: 'Symfony\Component\Form\Extension\Core\Type\UrlType'
+            priority: 10
+            ui_only: true
+            options:
+                label: oro.config.system_configuration.groups.core_settings.currency_exchange.api_url.title
+
+    tree:
+        system_configuration:
+            platform:
+                children:
+                    general_setup:
+                        children:
+                            application_settings:
+                                children:
+                                    core_settings:
+                                        priority: 5
+                                        children:
+                                            - oro_ui.currency_exchange_api_url
+

@@ -7,11 +7,11 @@ use Oro\Bundle\UserBundle\Entity\User;
 
 class UserViewNamingListener
 {
-    public function onUserView(BeforeListRenderEvent $event)
+    public function onUserView(BeforeListRenderEvent $event): void
     {
         /** @var User $user */
         $user = $event->getEntity();
-        if (!$user || !($user instanceof User)) {
+        if (!($user instanceof User)) {
             return;
         }
 

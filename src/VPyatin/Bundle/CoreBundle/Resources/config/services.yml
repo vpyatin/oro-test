@@ -1,0 +1,29 @@
+services:
+    vpyatin_core.cache.storage:
+        public: false
+        parent: oro.cache.abstract
+        calls:
+            - [ setNamespace, [ 'vpyatin_core.cache.api_request' ] ]
+
+    vpyatin_core.cache.core:
+        class: VPyatin\Bundle\CoreBundle\Cache\CoreCache
+        arguments:
+            - '@vpyatin_core.cache.storage'
+
+    vpyatin_core.service_api_monobank.request:
+        class: VPyatin\Bundle\CoreBundle\Service\Api\Monobank\Client
+        arguments:
+            - '@logger'
+            - '@vpyatin_core.cache.core'
+
+#  general_setup.core_settings:
+#    class: VPyatin\Bundle\CoreBundle\Config\CoreSettingsManager
+#    public: false
+#    parent: oro_config.scope_manager.abstract
+#    tags:
+#      - { name: oro_config.scope, scope: core_settings, priority: 40 }
+
+    general_setup.provider.form_provider.core_settings:
+        class: VPyatin\Bundle\CoreBundle\Provider\CoreSettingsFormProvider
+        parent: oro_config.provider.abstract_provider
+        lazy: true

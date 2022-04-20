@@ -1,12 +1,18 @@
 services:
-  design.general.scope.social_media_settings:
-    class: VPyatin\Bundle\PyatinThemeBundle\Config\SocialMediaSettingsManager
-    public: false
-    parent: oro_config.scope_manager.abstract
-    tags:
-      - { name: oro_config.scope, scope: social_media_settings, priority: 50 }
+#  design.general.scope.social_media_settings:
+#    class: VPyatin\Bundle\PyatinThemeBundle\Config\SocialMediaSettingsManager
+#    public: false
+#    parent: oro_config.scope_manager.abstract
+#    tags:
+#      - { name: oro_config.scope, scope: social_media_settings, priority: 50 }
+    design.general.provider.form_provider.social_media_settings:
+        class: VPyatin\Bundle\PyatinThemeBundle\Provider\SocialMediaSettingsFormProvider
+        parent: oro_config.provider.abstract_provider
+        lazy: true
 
-  design.general.provider.form_provider.social_media_settings:
-    class: 'VPyatin\Bundle\PyatinThemeBundle\Provider\SocialMediaSettingsFormProvider'
-    parent: 'oro_config.provider.abstract_provider'
-    lazy: true
+    vpyatin_bundle_pyatin_theme.layout.data_provider.currency_exchange_rate:
+        class: VPyatin\Bundle\PyatinThemeBundle\Layouts\DataProvider\CurrencyExchangeRateDataProvider
+        tags:
+            - { name: layout.data_provider, alias: vpyatin_bundle_pyatin_theme_currency_exchange_rate }
+        arguments:
+           - '@vpyatin_core.service_api_monobank.request'
