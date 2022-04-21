@@ -14,11 +14,9 @@ class Configuration implements ConfigurationInterface
     /**#@+
      * Aliases
      */
-    const ALIAS_CORE_SETTINGS = 'core_settings';
-    const ALIAS_CURRENCY_EXCHANGE_API_URL = 'oro_ui.currency_exchange_api_url';
+    const ALIAS_CORE_SETTINGS = 'pyatin_core';
+    const ALIAS_CURRENCY_EXCHANGE_API_URL = 'currency_exchange_api_url';
     /**#@-*/
-
-    const CURRENCY_API_URL = 'https://api.monobank.ua';
 
     /**
      * {@inheritdoc}
@@ -33,7 +31,7 @@ class Configuration implements ConfigurationInterface
             [
                 self::ALIAS_CURRENCY_EXCHANGE_API_URL => [
                     'type' => 'Symfony\Component\Form\Extension\Core\Type\UrlType',
-                    'value' => self::CURRENCY_API_URL,
+                    'value' => 'https://api.monobank.ua',
                 ]
             ]
         );

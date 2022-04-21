@@ -1,15 +1,17 @@
 system_configuration:
     groups:
-        core_settings:
-            title: oro_frontend.system_configuration.groups.design.general.title
+        pyatin_core_settings:
+            title: oro.config.system_configuration.groups.core_settings.title
             icon: fa-key
+        pyatin_core_settings_general:
+            title: oro.config.system_configuration.groups.core_settings.general.title
+            icon: fa-keyboard-o
 
     fields:
-        oro_ui.currency_exchange_api_url:
+        core.currency_exchange_api_url:
             data_type: string
             type: 'Symfony\Component\Form\Extension\Core\Type\UrlType'
             priority: 10
-            ui_only: true
             options:
                 label: oro.config.system_configuration.groups.core_settings.currency_exchange.api_url.title
 
@@ -19,10 +21,10 @@ system_configuration:
                 children:
                     general_setup:
                         children:
-                            application_settings:
+                            pyatin_core_settings:
                                 children:
-                                    core_settings:
+                                    pyatin_core_settings_general:
                                         priority: 5
                                         children:
-                                            - oro_ui.currency_exchange_api_url
+                                            - core.currency_exchange_api_url
 

@@ -22,8 +22,3 @@ services:
 #    parent: oro_config.scope_manager.abstract
 #    tags:
 #      - { name: oro_config.scope, scope: core_settings, priority: 40 }
-
-    general_setup.provider.form_provider.core_settings:
-        class: VPyatin\Bundle\CoreBundle\Provider\CoreSettingsFormProvider
-        parent: oro_config.provider.abstract_provider
-        lazy: true
