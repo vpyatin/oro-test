@@ -15,6 +15,7 @@ services:
         arguments:
             - '@logger'
             - '@vpyatin_core.cache.core'
+            - '@oro_config.manager'
 
 #  general_setup.core_settings:
 #    class: VPyatin\Bundle\CoreBundle\Config\CoreSettingsManager

@@ -12,6 +12,7 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use VPyatin\Bundle\CoreBundle\Cache\CoreCache;
 use VPyatin\Bundle\CoreBundle\Helper\CurrencyNumericToString;
+use Oro\Bundle\ConfigBundle\Config\ConfigManager;
 
 class Client implements ClientInterface
 {
@@ -20,6 +21,13 @@ class Client implements ClientInterface
      */
     const CACHE_KEY = 'monobank_request';
     const CACHE_KEY_CURRENCY_SUFFIX = 'currency';
+    /**#@-*/
+
+    /**#@+
+     * Mono API
+     */
+    const SYSTEM_CONFIG_API_URL_PATH = 'core.currency_exchange_api_url';
+    const API_GET_CURRENCY_ENDPOINT = 'bank/currency';
     /**#@-*/
 
     /**
@@ -38,7 +46,8 @@ class Client implements ClientInterface
      */
     public function __construct(
         private readonly LoggerInterface $logger,
-        private readonly Cache $cache
+        private readonly Cache $cache,
+        private readonly ConfigManager $configManager
     ) {
         $this->httpClient = HttpClient::create(
             [
@@ -56,7 +65,7 @@ class Client implements ClientInterface
                 if (!$json) {
                     $json = $this->httpClient->request(
                         self::HTTP_GET,
-                        'https://api.monobank.ua/bank/currency'
+                        $this->getEndpoint(self::API_GET_CURRENCY_ENDPOINT)
                     )->getContent();
                     $this->cache->save($cacheKey, $json);
                 }
@@ -94,5 +103,15 @@ class Client implements ClientInterface
     protected function getCacheKey(string $suffix): string
     {
         return sprintf('%s.%s', self::CACHE_KEY, $suffix);
+    }
+
+    /**
+     * @param string $endpoint
+     *
+     * @return string
+     */
+    protected function getEndpoint(string $endpoint): string
+    {
+        return sprintf('%s/%s', $this->configManager->get(self::SYSTEM_CONFIG_API_URL_PATH), ltrim($endpoint, '/'));
     }
 }
