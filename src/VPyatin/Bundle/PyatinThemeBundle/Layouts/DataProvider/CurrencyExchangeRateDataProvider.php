@@ -17,6 +17,7 @@ class CurrencyExchangeRateDataProvider
      */
     public function getCurrencyRateData(): string
     {
+        //@todo: rework with using DB
         $values = $this->client->getAllCurrenciesValues();
 
         $data = CurrencyNumericToString::getCurrencyRate('uah', 'usd', $values);
