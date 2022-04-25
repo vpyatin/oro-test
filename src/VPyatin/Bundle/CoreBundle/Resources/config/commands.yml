@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        public: false
+
+    VPyatin\Bundle\CoreBundle\Command\MonobankSync:
+        arguments:
+            - '@vpyatin_core.service_api_monobank.request'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: console.command }

@@ -43,6 +43,7 @@ class Client implements ClientInterface
     /**
      * @param LoggerInterface $logger
      * @param CoreCache $cache
+     * @param ConfigManager $configManager
      */
     public function __construct(
         private readonly LoggerInterface $logger,
